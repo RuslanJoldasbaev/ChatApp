@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e63946"
-        android:minHeight="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -79,22 +78,17 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar_chat"
         tools:listitem="@layout/item_chat_send" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/ed_text_card"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ic_send"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recycler_view_chat">
 
         <LinearLayout
@@ -104,45 +98,31 @@
             android:orientation="horizontal"
             android:padding="8dp">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/message_chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/message_chat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:hint="Message"
-                    android:padding="5dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="1dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/ic_attachment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:padding="8dp"
-                android:src="@drawable/ic_attachment" />
-
-            <ImageView
-                android:id="@+id/ic_send"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:padding="8dp"
-                android:src="@drawable/paper_plane" />
+                android:gravity="start"
+                android:hint="Message"
+                android:padding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="1dp"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/ic_send"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="10dp"
+        android:padding="8dp"
+        android:src="@drawable/paper_plane"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ed_text_card" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
