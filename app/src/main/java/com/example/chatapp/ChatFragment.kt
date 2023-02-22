@@ -14,7 +14,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         binding = FragmentChatBinding.bind(view)
 
         binding.apply {
-
+            arrBack.setOnClickListener {
+                requireActivity().supportFragmentManager.popBackStack()
+            }
         }
     }
 }
