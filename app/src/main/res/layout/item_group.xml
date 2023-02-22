@@ -25,10 +25,11 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/avatar"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:padding="4dp"
                 android:src="@drawable/bill_geyts"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -39,8 +40,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:text="Bill"
-                android:textColor="@color/black"
-                android:textStyle="bold|italic"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@id/avatar"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="Qalay ne qv"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/avatar"
                 app:layout_constraintTop_toBottomOf="@id/avatar_name"
