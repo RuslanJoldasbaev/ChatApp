@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="start"
@@ -13,16 +14,38 @@
         android:layout_margin="20dp"
         android:layout_marginVertical="1dp"
         android:background="@drawable/receive_drawable"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="15dp">
 
         <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:singleLine="true"
+            android:textColor="#77FF00"
+            android:textSize="16sp"
+            android:textStyle="bold|normal"
+            tools:text="7evenLine asdkn kjasnd" />
+
+        <TextView
+            android:id="@+id/tv_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Receive msg"
             android:textAlignment="textStart"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="15:11"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="12sp"
             android:textStyle="bold|normal" />
     </LinearLayout>
 </LinearLayout>

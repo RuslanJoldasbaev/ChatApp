@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.chatapp.databinding.FragmentGroupBinding
+import com.example.chatapp.ui.adapters.GroupAdapter
 
 class GroupFragment : Fragment(R.layout.fragment_group) {
     private lateinit var binding: FragmentGroupBinding

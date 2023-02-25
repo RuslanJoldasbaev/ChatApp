@@ -1,8 +1,10 @@
-package com.example.chatapp
+package com.example.chatapp.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatapp.R
 import com.example.chatapp.data.models.Group
 import com.example.chatapp.databinding.ItemGroupBinding
 
@@ -10,19 +12,22 @@ class GroupAdapter : RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
 
     inner class GroupViewHolder(private val binding: ItemGroupBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(group: Group) {
-            binding.apply {
-                avatarName.text = group.group
-                chatMessage.text = group.message
-                time.text = group.date
-                cardView.setOnClickListener {
-                    onItemClick.invoke(group.id, adapterPosition)
-                }
+        @SuppressLint("SetTextI18n")
+        fun bind() {
+            val d = models[adapterPosition]
+            binding.tvGroupName.text = d.name
+            binding.tvLastMessage.text = "${d.name}: Qalay aman saw ne qv?"
+        }
+
+        init {
+            binding.cardView.setOnClickListener {
+                onItemClick?.invoke(models[adapterPosition])
             }
         }
     }
 
     var models = listOf<Group>()
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -31,17 +36,17 @@ class GroupAdapter : RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
     override fun getItemCount(): Int = models.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_group, parent, false)
-        val binding = ItemGroupBinding.bind(v)
-        return GroupViewHolder(binding)
+        return GroupViewHolder(
+            ItemGroupBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
-        holder.bind(models[position])
+        holder.bind()
     }
 
-    private var onItemClick: (id: Int, position: Int) -> Unit = { _, _ -> }
-    fun setOnItemClickListener(onItemClick: (id: Int, position: Int) -> Unit) {
+    private var onItemClick: ((Group) -> Unit)? = null
+    fun setOnItemClickListener(onItemClick: ((Group) -> Unit)) {
         this.onItemClick = onItemClick
     }
 }
