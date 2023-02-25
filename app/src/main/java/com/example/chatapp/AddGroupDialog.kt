@@ -1,10 +1,10 @@
-package com.example.chatapp.data
+package com.example.chatapp
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.chatapp.R
+import com.example.chatapp.data.models.Group
 import com.example.chatapp.databinding.DialogGroupAddBinding
 import com.example.chatapp.presentation.ViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

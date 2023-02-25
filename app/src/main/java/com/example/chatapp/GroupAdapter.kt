@@ -3,7 +3,7 @@ package com.example.chatapp
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chatapp.data.Group
+import com.example.chatapp.data.models.Group
 import com.example.chatapp.databinding.ItemGroupBinding
 
 class GroupAdapter : RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
