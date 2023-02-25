@@ -1,6 +1,5 @@
 package com.example.chatapp.domain
 
-<<<<<<< HEAD
 import com.example.chatapp.data.local.LocalStorage
 import com.example.chatapp.data.models.Group
 import com.example.chatapp.data.models.ResultData
@@ -47,15 +46,4 @@ class MainRepository(private val fb: FirebaseFirestore, private val rd: Firebase
     suspend fun andGroupToRealtimeDatabase(id: String) {
         rd.getReference(id).setValue(null)
     }
-=======
-import com.example.chatapp.data.models.Group
-import com.example.chatapp.data.models.ResultData
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.flow.flow
-
-class MainRepository(private val fb:FirebaseFirestore,private val rd:FirebaseDatabase){
-
-
->>>>>>> origin/main
 }
