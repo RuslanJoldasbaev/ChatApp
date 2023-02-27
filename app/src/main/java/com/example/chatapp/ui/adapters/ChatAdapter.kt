@@ -21,7 +21,7 @@ class ChatAdapter : ListAdapter<MessageData, RecyclerView.ViewHolder>(diffCall) 
     inner class ChatAnotherViewHolder(private val binding: ItemChatReceiveBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            val d = getItem(adapterPosition)
+            val d = getItem(absoluteAdapterPosition)
             binding.tvMessage.text = d.message
             binding.tvUsername.text = d.user
             binding.tvTime.text = d.time
@@ -31,7 +31,7 @@ class ChatAdapter : ListAdapter<MessageData, RecyclerView.ViewHolder>(diffCall) 
     inner class ChatMeViewHolder(private val binding: ItemChatSendBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind() {
-            val d = getItem(adapterPosition)
+            val d = getItem(absoluteAdapterPosition)
             binding.tvMessage.text = d.message
             binding.tvTime.text = d.time
         }
