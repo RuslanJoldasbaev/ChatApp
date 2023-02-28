@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_groupFragment2_to_addGroupDialog"
             app:destination="@id/addGroupDialog" />
+        <action
+            android:id="@+id/action_groupFragment2_to_editFragment"
+            app:destination="@id/editFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment2"
@@ -35,4 +38,8 @@
         android:id="@+id/addGroupDialog"
         android:name="com.example.chatapp.AddGroupDialog"
         android:label="AddGroupDialog" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.chatapp.EditFragment"
+        android:label="EditFragment" />
 </navigation>
