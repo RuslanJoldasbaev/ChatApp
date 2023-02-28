@@ -26,12 +26,13 @@
         tools:layout="@layout/fragment_chat">
 
         <argument
-            android:name="groupName"
+            android:name="groupId"
             app:argType="string" />
 
         <argument
-            android:name="groupId"
+            android:name="groupName"
             app:argType="string" />
+
 
     </fragment>
     <dialog
