@@ -47,6 +47,10 @@ class GroupFragment : Fragment(R.layout.fragment_group) {
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(GroupFragmentDirections.actionGroupFragment2ToAddGroupDialog())
         }
+
+        binding.settingButton.setOnClickListener {
+            findNavController().navigate(GroupFragmentDirections.actionGroupFragment2ToEditFragment())
+        }
     }
 
     private fun initObservers() {
