@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.ui.chat
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.chatapp.R
 import com.example.chatapp.data.models.MessageData
 import com.example.chatapp.databinding.FragmentChatBinding
 import com.example.chatapp.presentation.chat.ChatViewModel

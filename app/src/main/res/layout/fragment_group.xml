@@ -17,24 +17,13 @@
         android:id="@+id/text_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chat Name"
+        android:text="Groups"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/toolbar_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/search_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="4dp"
-        android:padding="8dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_group"
-        app:layout_constraintEnd_toEndOf="@id/toolbar_group"
-        app:layout_constraintTop_toTopOf="@id/toolbar_group" />
 
     <ImageView
         android:id="@+id/setting_button"
@@ -50,14 +39,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="#2C2424"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_group"
         tools:listitem="@layout/item_group" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +61,8 @@
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             android:backgroundTint="#2545EA"
-            android:src="@drawable/ic_add" />
+            android:src="@drawable/ic_add"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

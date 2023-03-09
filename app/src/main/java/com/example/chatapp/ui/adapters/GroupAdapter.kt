@@ -14,14 +14,14 @@ class GroupAdapter : RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind() {
-            val d = models[adapterPosition]
+            val d = models[absoluteAdapterPosition]
             binding.tvGroupName.text = d.name
             binding.tvLastMessage.text = "${d.name}: Qalay aman saw ne qv?"
         }
 
         init {
             binding.cardView.setOnClickListener {
-                onItemClick?.invoke(models[adapterPosition])
+                onItemClick?.invoke(models[absoluteAdapterPosition])
             }
         }
     }

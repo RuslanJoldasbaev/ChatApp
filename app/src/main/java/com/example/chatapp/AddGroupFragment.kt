@@ -2,51 +2,56 @@ package com.example.chatapp
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.chatapp.data.models.Group
-import com.example.chatapp.databinding.DialogGroupAddBinding
-import com.example.chatapp.presentation.chat.ChatViewModel
+import com.example.chatapp.databinding.FragmentGroupAddBinding
 import com.example.chatapp.presentation.group.AddGroupViewModel
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import ru.ldralighieri.corbind.view.clicks
 
-class AddGroupDialog : DialogFragment(R.layout.dialog_group_add) {
-    private lateinit var binding: DialogGroupAddBinding
+class AddGroupFragment : Fragment(R.layout.fragment_group_add) {
+    private lateinit var binding: FragmentGroupAddBinding
     private lateinit var viewModel: AddGroupViewModel
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = DialogGroupAddBinding.bind(view)
+
+        binding = FragmentGroupAddBinding.bind(view)
+
         viewModel = ViewModelProvider(
             requireActivity(),
             ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
         )[AddGroupViewModel::class.java]
         initListeners()
         initObservers()
+
+
     }
 
     private fun initListeners() {
-        binding.icDone.setOnClickListener {
-            val name = binding.etName.text.toString()
-            if (name.isNotEmpty()) {
-                lifecycleScope.launchWhenResumed {
-                    viewModel.addGroup(name)
-                }
-            } else {
-                Snackbar.make(
-                    requireView(), "Please enter name of your group!", Snackbar.LENGTH_SHORT
-                ).show()
-            }
-
-            binding.icBack.setOnClickListener {
+        binding.apply {
+            icBack.clicks().debounce(200).onEach {
                 findNavController().popBackStack()
-            }
+            }.launchIn(lifecycleScope)
 
+            icDone.setOnClickListener {
+                val name = binding.etName.text.toString()
+                if (name.isNotEmpty()) {
+                    lifecycleScope.launchWhenResumed {
+                        viewModel.addGroup(name)
+                    }
+                } else {
+                    Snackbar.make(
+                        requireView(), "Please enter name of your group!", Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
     }
 
@@ -58,5 +63,4 @@ class AddGroupDialog : DialogFragment(R.layout.dialog_group_add) {
             findNavController().popBackStack()
         }.launchIn(lifecycleScope)
     }
-
 }

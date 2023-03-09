@@ -13,15 +13,15 @@
             android:id="@+id/action_groupFragment2_to_chatFragment2"
             app:destination="@id/chatFragment" />
         <action
-            android:id="@+id/action_groupFragment2_to_addGroupDialog"
-            app:destination="@id/addGroupDialog" />
-        <action
             android:id="@+id/action_groupFragment2_to_editFragment"
             app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_groupFragment2_to_addGroupFragment"
+            app:destination="@id/addGroupFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.chatapp.ChatFragment"
+        android:name="com.example.chatapp.ui.chat.ChatFragment"
         android:label="chatFragment"
         tools:layout="@layout/fragment_chat">
 
@@ -35,12 +35,12 @@
 
 
     </fragment>
-    <dialog
-        android:id="@+id/addGroupDialog"
-        android:name="com.example.chatapp.AddGroupDialog"
-        android:label="AddGroupDialog" />
     <fragment
         android:id="@+id/editFragment"
         android:name="com.example.chatapp.EditFragment"
         android:label="EditFragment" />
+    <fragment
+        android:id="@+id/addGroupFragment"
+        android:name="com.example.chatapp.AddGroupFragment"
+        android:label="AddGroupFragment" />
 </navigation>

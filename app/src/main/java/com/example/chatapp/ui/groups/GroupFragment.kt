@@ -20,6 +20,7 @@ class GroupFragment : Fragment(R.layout.fragment_group) {
     private var _adapter: GroupAdapter? = null
     private val adapter get() = _adapter!!
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -45,7 +46,7 @@ class GroupFragment : Fragment(R.layout.fragment_group) {
         }
 
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(GroupFragmentDirections.actionGroupFragment2ToAddGroupDialog())
+            findNavController().navigate(GroupFragmentDirections.actionGroupFragment2ToAddGroupFragment())
         }
 
         binding.settingButton.setOnClickListener {

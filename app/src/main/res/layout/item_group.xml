@@ -16,15 +16,30 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ic_group"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:padding="4dp"
-            android:src="@drawable/bill_geyts"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_margin="12dp"
+            android:background="#2545EA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+
+        <TextView
+            android:id="@+id/ic_group_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IE"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ic_group"
+            app:layout_constraintEnd_toEndOf="@id/ic_group"
+            app:layout_constraintStart_toStartOf="@id/ic_group"
+            app:layout_constraintTop_toTopOf="@id/ic_group" />
 
         <TextView
             android:id="@+id/tv_group_name"
