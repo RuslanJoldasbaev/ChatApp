@@ -2,6 +2,7 @@ package com.example.chatapp.presentation.group
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.chatapp.data.models.Group
 import com.example.chatapp.data.models.ResultData
@@ -12,12 +13,11 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class GroupViewModel(application: Application) : AndroidViewModel(application) {
+class GroupViewModel(private val repo:MainRepository) : ViewModel() {
 
     val getGroupChatsFlow = MutableSharedFlow<List<Group>>()
     val errorFlow = MutableSharedFlow<Throwable>()
     val messageFlow = MutableSharedFlow<String>()
-    val repo = MainRepository(FirebaseFirestore.getInstance(), FirebaseDatabase.getInstance())
 
     suspend fun getGroupChats() {
         repo.getGroupChatsFlow().onEach {

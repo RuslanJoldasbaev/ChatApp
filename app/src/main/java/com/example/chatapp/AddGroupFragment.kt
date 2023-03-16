@@ -3,7 +3,6 @@ package com.example.chatapp
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.chatapp.databinding.FragmentGroupAddBinding
@@ -12,11 +11,12 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.ldralighieri.corbind.view.clicks
 
 class AddGroupFragment : Fragment(R.layout.fragment_group_add) {
     private lateinit var binding: FragmentGroupAddBinding
-    private lateinit var viewModel: AddGroupViewModel
+    private val viewModel by viewModel<AddGroupViewModel>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -24,13 +24,8 @@ class AddGroupFragment : Fragment(R.layout.fragment_group_add) {
 
         binding = FragmentGroupAddBinding.bind(view)
 
-        viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
-        )[AddGroupViewModel::class.java]
         initListeners()
         initObservers()
-
 
     }
 

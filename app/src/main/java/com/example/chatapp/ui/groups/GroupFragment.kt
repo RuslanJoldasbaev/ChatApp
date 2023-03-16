@@ -13,10 +13,11 @@ import com.example.chatapp.presentation.group.GroupViewModel
 import com.example.chatapp.ui.adapters.GroupAdapter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GroupFragment : Fragment(R.layout.fragment_group) {
     private lateinit var binding: FragmentGroupBinding
-    private lateinit var viewModel: GroupViewModel
+    private val viewModel by viewModel<GroupViewModel>()
     private var _adapter: GroupAdapter? = null
     private val adapter get() = _adapter!!
 
@@ -25,11 +26,6 @@ class GroupFragment : Fragment(R.layout.fragment_group) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentGroupBinding.bind(view)
-
-        viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
-        )[GroupViewModel::class.java]
 
         initData()
         initObservers()

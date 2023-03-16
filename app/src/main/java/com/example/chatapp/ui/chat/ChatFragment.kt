@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.ldralighieri.corbind.view.clicks
 
 class ChatFragment : Fragment(R.layout.fragment_chat) {
@@ -28,7 +29,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
     private var _adapter: ChatAdapter? = null
     private val adapter get() = _adapter!!
 
-    private lateinit var viewModel: ChatViewModel
+    private val viewModel by viewModel<ChatViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,11 +51,6 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         binding.groupName.text = args.groupName
         _adapter = ChatAdapter()
         binding.recyclerViewChat.adapter = adapter
-
-        viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
-        )[ChatViewModel::class.java]
     }
 
     private fun initObservers() {
